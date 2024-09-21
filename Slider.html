@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            /* background-color: rgb(26, 26, 26); */
+        }
+
+        .main {
+            width: 1200px;
+            height: auto;
+            display: flex;
+            overflow-x: scroll;
+            margin: 0 auto;
+        }
+
+        .main div {
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 20px;
+            padding: 8px; 
+            flex: none;
+        }
+
+        .main div img {
+
+            width: 100%;
+            aspect-ratio: 3/2;
+            object-fit: fill;
+            filter: grayscale(0.5);
+            cursor: pointer;
+            transition: transform 0.6s;
+            align-items: center;
+
+
+        }
+
+        .main::-webkit-scrollbar {
+            display: none;
+        }
+
+        .header {
+            width: 90%;
+            display: flex;
+            align-items: center;
+            margin: 150px auto;
+            /* margin: 0 auto; */
+
+        }
+
+        .header h1 {
+            font-size: 80px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(255, 42, 0);
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 100%;
+        }
+
+
+
+        .main div img:hover {
+            filter: grayscale(0);
+            cursor: pointer;
+            transform: scale(1.2);
+            z-index: 2;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1 id="backbtn"><</h1>
+
+                <div class="main">
+                    <div class="gallary">
+
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (1).jpg" alt="">
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (2).jpg" alt="">
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (3).jpg" alt="">
+                    </div>
+
+                    <div class="gallary">
+
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (4).jpg" alt="">
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen(5).jpg" alt="">
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (1).jpg" alt="">
+
+                    </div>
+                    <div class="gallary">
+
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (2).jpg" alt="">
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (3).jpg" alt="">
+                        <img src="../Module-6-JAVASCRIPT/img/ensepsen (4).jpg" alt="">
+
+                    </div>
+                </div>
+               
+             <h1 id="nextbtn">></h1>
+
+    </div>
+
+    <script>
+
+        let slider = document.querySelector(".main");
+        let backbtn = document.querySelector("#backbtn");
+        let nextbtn = document.querySelector("#nextbtn");
+
+
+        nextbtn.addEventListener("click", () => {
+            slider.style.scrollBehavior = "smooth";
+            slider.scrollLeft += 1200;
+        });
+
+        backbtn.addEventListener("click", () => {
+            slider.scrollLeft -= 1200;
+            slider.style.scrollBehavior = "smooth";
+        });
+
+    </script>
+
+</body>
+
+</html>
